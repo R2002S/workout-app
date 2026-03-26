@@ -653,7 +653,7 @@ function App() {
               <div>
                 <h2 style={styles.sectionTitle}>リマインダー</h2>
                 <div style={styles.subInfo}>
-                  {daysSince === null ? "まだ記録なし" : ${daysSince}日休み}
+                  {daysSince === null ? "まだ記録なし" : '${daysSince}日休み'}
                 </div>
               </div>
               <button style={styles.primaryButtonSmall} onClick={() => setShowRemForm((v) => !v)}>
