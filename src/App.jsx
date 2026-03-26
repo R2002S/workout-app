@@ -627,7 +627,7 @@ function App() {
                   <div key={log.id} style={styles.logCard}>
                     <div>
                       <div style={styles.logTitle}>
-                        {log.category ? [${log.category}]  : ""}
+                        {log.category ? '[${log.category}] ' : ""}
                         {log.exercise}
                       </div>
                       <div style={styles.logMeta}>
