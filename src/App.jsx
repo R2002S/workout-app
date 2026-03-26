@@ -2,8 +2,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
-  "https://ffhizdfgwocnnnniojqq.supabase.co",
-  "sb_publishable_JlQJPyDc1vbGOmx3N213VA_fAPEzOsv"
+  "https://ffhizdfgwocnnnniojqg.supabase.co",
+  "sb_publishable_J1QJPyDc1vbG0mx3N213VA_fAPEzOsV"
 );
 
 const DEFAULT_EXERCISES = {
@@ -22,7 +22,7 @@ const TAB_ICONS = ["💬", "📋", "💪", "🔔"];
 const STEPS = [
   { key: "name", q: "まず、お名前を教えてください！", placeholder: "例：田中 太郎" },
   { key: "goal", q: "あなたの一番の目標は何ですか？", placeholder: "例：体脂肪を落とす、筋肉をつける、健康維持" },
-  { key: "level", q: "トレーニング経験はどのくらいですか？", placeholder: "例：完全初心者・週1〜2回・週3回以上" },
+  { key: "level", q: "トレーニング経験はどのくらいですか？", placeholder: "例：完全初心者・週1～2回・週3回以上" },
   { key: "concern", q: "体の悩みや気になることはありますか？（任意）", placeholder: "例：腰痛持ち、肩が弱い、特になし" },
 ];
 
@@ -99,16 +99,16 @@ function App() {
     if (p) {
       setProfile(p);
       setMessages(
-  history.length > 0
-    ? history
-    : [
-        {
-          role: "assistant",
-          content: `おかえりなさい、${p.name}さん！🔥
+        history.length > 0
+          ? history
+          : [
+              {
+                role: "assistant",
+                content: `おかえりなさい、${p.name}さん！🔥
 今日も積み上げていこう。`,
-        },
-      ]
-);
+              },
+            ]
+      );
       setPhase("main");
     } else {
       setPhase("onboard");
@@ -130,10 +130,7 @@ function App() {
   }, [notification]);
 
   async function fetchLogs() {
-    const { data, error } = await supabase
-      .from("logs")
-      .select("*")
-      .order("id", { ascending: false });
+    const { data, error } = await supabase.from("logs").select("*").order("id", { ascending: false });
 
     if (error) {
       console.log(error);
@@ -158,12 +155,13 @@ function App() {
     setProfile(nextAnswers);
 
     const starter = [
-  {
-    role: "assistant",
-    content: `はじめまして、${nextAnswers.name}さん！🔥
+      {
+        role: "assistant",
+        content: `はじめまして、${nextAnswers.name}さん！🔥
 目標は「${nextAnswers.goal}」ですね。今日から一緒に積み上げましょう。`,
-  },
-];
+      },
+    ];
+
     setMessages(starter);
     storage.set("ignite_history", starter);
     setPhase("main");
@@ -175,10 +173,10 @@ function App() {
     if (q.includes("メニュー")) {
       return `${profile?.name || "あなた"}さん向けの本日のおすすめです🔥
 
-・メイン種目：ベンチプレス 4セット × 6〜8回
-・補助種目：インクラインベンチプレス 3セット × 8〜10回
-・仕上げ：ケーブルクロス 3セット × 12〜15回
-・休憩：メイン2〜3分、補助60〜90秒
+・メイン種目：ベンチプレス 4セット × 6～8回
+・補助種目：インクラインベンチプレス 3セット × 8～10回
+・仕上げ：ケーブルクロス 3セット × 12～15回
+・休憩：メイン2～3分、補助60～90秒
 
 フォーム優先でいこう。`;
     }
@@ -186,7 +184,7 @@ function App() {
     if (q.includes("食事") || q.includes("栄養")) {
       return `食事の基本です🍚
 
-・体重 × 1.6〜2.2g のたんぱく質
+・体重 × 1.6～2.2g のたんぱく質
 ・毎食でたんぱく質を分ける
 ・トレ前後は炭水化物をしっかり
 ・減量なら総摂取カロリーを管理
@@ -337,7 +335,6 @@ function App() {
     };
     setExercises(updated);
     storage.set("ignite_exercises", updated);
-
     if (logForm.exercise === name) {
       setLogForm({ ...logForm, exercise: "" });
     }
@@ -588,7 +585,6 @@ function App() {
                     </div>
                   </>
                 )}
-
                 <div style={styles.formRow3}>
                   <input
                     style={styles.input}
@@ -816,7 +812,6 @@ function RMCalculator({ oneRM }) {
     </div>
   );
 }
-
 const styles = {
   page: {
     minHeight: "100vh",
