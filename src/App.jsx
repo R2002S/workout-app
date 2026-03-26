@@ -158,11 +158,12 @@ function App() {
     setProfile(nextAnswers);
 
     const starter = [
-      {
-        role: "assistant",
-        content: はじめまして、${nextAnswers.name}さん！🔥\n目標は「${nextAnswers.goal}」ですね。今日から一緒に積み上げましょう。,
-      },
-    ];
+  {
+    role: "assistant",
+    content: `はじめまして、${nextAnswers.name}さん！🔥
+目標は「${nextAnswers.goal}」ですね。今日から一緒に積み上げましょう。`,
+  },
+];
     setMessages(starter);
     storage.set("ignite_history", starter);
     setPhase("main");
