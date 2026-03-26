@@ -368,7 +368,7 @@ function App() {
     if (!profile) return [];
     return [
       "今日のトレーニングメニューを作って",
-      ${profile.goal}に効く食事を教えて,
+      '${profile.goal}に効く食事を教えて',
       "ストレッチ方法を教えて",
       "前回の続きから始めよう",
     ];
