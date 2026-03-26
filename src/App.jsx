@@ -2,8 +2,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
-  "https://ffhizdfgwocnnnniojqg.supabase.co",
-  "sb_publishable_J1QJPyDc1vbG0mx3N213VA_fAPEzOsV"
+  "https://ffhizdfgwocnnnniojqq.supabase.co",
+  "sb_publishable_JlQJPyDc1vbGOmx3N213VA_fAPEzOsv"
 );
 
 const DEFAULT_EXERCISES = {
