@@ -99,10 +99,16 @@ function App() {
     if (p) {
       setProfile(p);
       setMessages(
-        history.length > 0
-          ? history
-: [{ role: "assistant", content: おかえりなさい、${p.name}さん！🔥 今日もやり切っていこう }]
-      );
+  history.length > 0
+    ? history
+    : [
+        {
+          role: "assistant",
+          content: `おかえりなさい、${p.name}さん！🔥
+今日も積み上げていこう。`,
+        },
+      ]
+);
       setPhase("main");
     } else {
       setPhase("onboard");
