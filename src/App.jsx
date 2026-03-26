@@ -101,7 +101,7 @@ function App() {
       setMessages(
         history.length > 0
           ? history
-          : [{ role: "assistant", content: `おかえりなさい、${p.name}さん！🔥今日もやり切っていこう` }]
+: [{ role: "assistant", content: おかえりなさい、${p.name}さん！🔥 今日もやり切っていこう }]
       );
       setPhase("main");
     } else {
